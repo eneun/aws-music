@@ -4,18 +4,12 @@ from .models import Music
 class MusicForm(forms.ModelForm):
     class Meta:
         model = Music
-        fields = ['title', 'content', 'music']
+        fields = ['title', 'music']
 
         widgets = {
             'title': forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                }
-            ),
-            'content': forms.Textarea(
-                attrs={
-                    'class': 'form-control',
-                    'rows': '3',
                 }
             ),
         }
