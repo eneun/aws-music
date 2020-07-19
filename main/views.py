@@ -18,7 +18,7 @@ def main(request):
             service_info=requests.get("http://169.254.169.254/latest/meta-data/instance-id",timeout=2).text
         except:
             service_info =""
-        return render(request, 'main.html', {'form': form, 'musics': musics})
+        return render(request, 'main.html', {'form': form, 'musics': musics, 'service_info': service_info})
 
 def setting(request):
     from .custom_storage import MediaStorage
