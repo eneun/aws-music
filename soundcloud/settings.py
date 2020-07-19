@@ -118,4 +118,4 @@ MEDIA_URL = '/media/'
 AWS_S3_OBJECT_PARAMETERS = {
 	'CacheControl': 'max-age=86400',
 }
-DEFAULT_FILE_STORAGE = 'main.custom_storage.MediaStorage'
+# DEFAULT_FILE_STORAGE = 'main.custom_storage.MediaStorage'

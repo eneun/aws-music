@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Music
 from .forms import MusicForm
 import requests
@@ -27,4 +27,9 @@ def setting(request):
     MediaStorage.aws_region = request.POST['s3-region']
     MediaStorage.bucket_name = request.POST['s3-bucket-name']
     MediaStorage.custom_domain = '%s.s3.%s.amazonaws.com' % (MediaStorage.bucket_name, MediaStorage.aws_region)
+    return redirect('main')
+
+def delete(request, id):
+    music = get_object_or_404(Music, pk=id)
+    music.delete()
     return redirect('main')

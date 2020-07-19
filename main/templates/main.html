@@ -35,10 +35,6 @@
                                 {{form.title}}
                             </div>
                             <div class="form-group">
-                                <label class="col-form-label">설명:</label>
-                                {{form.content}}
-                            </div>
-                            <div class="form-group">
                                 <label class="col-form-label">파일:</label>
                                 {{form.music}}
                             </div>
@@ -87,6 +83,7 @@
                     <tr>
                         <th scope="col">Title</th>
                         <th scope="col">Music</th>
+                        <th scope="col-1">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -94,6 +91,9 @@
                         <tr>
                             <td>{{music.title}}</td>
                             <td><audio src="{{music.music.url}}" controls></audio></td>
+                            <td>
+                                <a href="{% url 'delete' music.id %}"class="btn btn-outline-danger">삭제</a>
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>
