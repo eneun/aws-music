@@ -14,6 +14,10 @@ def main(request):
         from django.conf import settings
         musics = Music.objects.all
         form = MusicForm()
+        try:
+            service_info=requests.get("http://169.254.169.254/latest/meta-data/instance-id",timeout=2).text
+        except:
+            service_info =""
         return render(request, 'main.html', {'form': form, 'musics': musics})
 
 def setting(request):
